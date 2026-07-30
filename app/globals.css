@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-navy: #0a1d38;
+  --color-navy-deep: #071426;
+  --color-gold: #c6a15b;
+  --color-gold-soft: #e3c98f;
+  --color-ivory: #f6f4ef;
+  --color-ink: #14161a;
+  --color-grey: #33363f;
+  --color-line: rgba(10, 29, 56, 0.14);
+  --color-line-light: rgba(255, 255, 255, 0.16);
+
+  --font-display: var(--font-cinzel);
+  --font-serif: var(--font-cormorant);
+  --font-body: var(--font-jost);
+
+  --shadow-luxury: 0 24px 60px -24px rgba(7, 20, 38, 0.35);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-ink);
+  background: #ffffff;
+  font-weight: 400;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-navy-deep);
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee 32s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
+.testimonial-swiper .swiper-pagination-bullet {
+  background: rgba(246, 244, 239, 0.4);
+  opacity: 1;
+}
+
+.testimonial-swiper .swiper-pagination-bullet-active {
+  background: var(--color-gold);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
